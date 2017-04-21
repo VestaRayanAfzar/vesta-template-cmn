@@ -1,0 +1,1 @@
+export enum AclPolicy {Allow = 1, Deny}
