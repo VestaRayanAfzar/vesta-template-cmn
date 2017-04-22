@@ -1,8 +1,6 @@
-import {IVocabs} from "vesta-i18n/Dictionary";
+import {IVocabs} from "vesta-lib/Dictionary";
 
 export const Dictionary: IVocabs = {
-    dashboard: 'داشبورد',
-    theme: 'دکور',
     login_title: 'ورود به سامانه',
     login: 'ورود',
     logout: 'خروج',
@@ -24,26 +22,6 @@ export const Dictionary: IVocabs = {
     male: 'مرد',
     female: 'زن',
     image: 'تصویر',
-    //
-    last_name: 'نام خانوادگی',
-    birth_date: 'تاریخ تولد',
-    manage_acl: 'مدیریت سطوح دسترسی',
-    role: 'نقش',
-    roles: 'نقش ها',
-    row: 'ردیف',
-    role_name: 'نام نقش',
-    status: 'وضعیت',
-    add_role: 'افزودن نقش',
-    edit_role: 'ویرایش نقش',
-    number_selected_records: 'تعداد رکوردهای انتخاب شده',
-    description: 'توضیح',
-    access_list: 'دسترسی ها',
-    edge_name: 'نام لبه',
-    operation: 'عملیات',
-    role_group: 'گروه نقش',
-    add_role_group: 'افزودن گروه نقش',
-    edit_role_group: 'ویرایش گروه نقش',
-    add_user: 'افزودن کاربر',
     //
     title_record_add: 'افزودن %',
     title_record_edit: 'ویرایش %',

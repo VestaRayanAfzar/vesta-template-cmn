@@ -1,8 +1,8 @@
-import {Schema} from "vesta-schema/Schema";
-import {FieldType} from "vesta-schema/Field";
-import {Model, IModelValues} from "vesta-schema/Model";
-import {Database} from "vesta-schema/Database";
-import {RoleGroup, IRoleGroup} from "./RoleGroup";
+import {IModelValues, Model} from "vesta-lib/Model";
+import {Schema} from "vesta-lib/Schema";
+import {FieldType} from "vesta-lib/Field";
+import {Database} from "vesta-lib/Database";
+import {IRoleGroup, RoleGroup} from "./RoleGroup";
 
 export enum UserGender {Male = 1, Female}
 
@@ -15,8 +15,8 @@ export interface IUser {
     password?: string;
     birthDate?: number;
     gender?: UserGender;
-    image?: File|string;
-    roleGroups?: Array<number|IRoleGroup|RoleGroup>;
+    image?: File | string;
+    roleGroups?: Array<number | IRoleGroup | RoleGroup>;
 }
 
 export class User extends Model implements IUser {
@@ -30,8 +30,8 @@ export class User extends Model implements IUser {
     public password: string;
     public birthDate: number;
     public gender: UserGender;
-    public image: File|string;
-    public roleGroups: Array<number|IRoleGroup|RoleGroup> = [];
+    public image: File | string;
+    public roleGroups: Array<number | IRoleGroup | RoleGroup> = [];
 
     constructor(values?: IModelValues) {
         super(User.schema, User.database);

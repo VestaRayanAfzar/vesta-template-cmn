@@ -1,15 +1,15 @@
-import {Model} from "vesta-schema/Model";
-import {Schema} from "vesta-schema/Schema";
-import {FieldType} from "vesta-schema/Field";
-import {Database} from "vesta-schema/Database";
+import {IModelValues, Model} from "vesta-lib/Model";
+import {Schema} from "vesta-lib/Schema";
+import {FieldType} from "vesta-lib/Field";
+import {Database} from "vesta-lib/Database";
 import {IRole, Role} from "./Role";
 import {Status} from "../enum/Status";
 
 export interface IRoleGroup {
-    id?: number|string;
+    id?: number;
     name: string;
     desc?: string;
-    roles?: Array<number|IRole|Role>;
+    roles?: Array<number | IRole | Role>;
     status?: Status;
 }
 
@@ -17,13 +17,13 @@ export interface IRoleGroup {
 export class RoleGroup extends Model implements IRoleGroup {
     public static schema: Schema = new Schema('RoleGroup');
     public static database: Database;
-    public id: number|string;
+    public id: number;
     public name: string;
     public desc: string;
-    public roles: Array<number|IRole|Role> = [];
+    public roles: Array<number | IRole | Role> = [];
     public status: Status = Status.Active;
 
-    constructor(values?: any) {
+    constructor(values?: IModelValues) {
         super(RoleGroup.schema, RoleGroup.database);
         this.setValues(values);
     }

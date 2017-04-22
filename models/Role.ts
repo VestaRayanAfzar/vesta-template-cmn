@@ -1,28 +1,28 @@
-import {Model} from "vesta-schema/Model";
-import {Schema} from "vesta-schema/Schema";
-import {FieldType} from "vesta-schema/Field";
-import {Permission, IPermission} from "./Permission";
-import {Database} from "vesta-schema/Database";
+import {IModelValues, Model} from "vesta-lib/Model";
+import {Schema} from "vesta-lib/Schema";
+import {FieldType} from "vesta-lib/Field";
+import {Database} from "vesta-lib/Database";
+import {IPermission, Permission} from "./Permission";
 import {Status} from "../enum/Status";
 
 export interface IRole {
-    id?: number|string;
+    id?: number;
     name?: string;
     desc?: string;
-    permissions?: Array<number|IPermission|Permission>;
+    permissions?: Array<number | IPermission | Permission>;
     status?: Status;
 }
 
 export class Role extends Model implements IRole {
     public static schema: Schema = new Schema('Role');
     public static database: Database;
-    public id: number|string;
+    public id: number;
     public name: string;
     public desc: string;
-    public permissions: Array<number|IPermission|Permission> = [];
+    public permissions: Array<number | IPermission | Permission> = [];
     public status: Status = Status.Active;
 
-    constructor(values?: any) {
+    constructor(values?: IModelValues) {
         super(Role.schema, Role.database);
         this.setValues(values);
     }
