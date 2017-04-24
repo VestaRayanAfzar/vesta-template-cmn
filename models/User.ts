@@ -4,7 +4,7 @@ import {FieldType} from "vesta-lib/Field";
 import {Database} from "vesta-lib/Database";
 import {IRoleGroup, RoleGroup} from "./RoleGroup";
 
-export enum UserGender {Male = 1, Female}
+export const enum UserGender {Male = 1, Female}
 
 export interface IUser {
     id?: number;

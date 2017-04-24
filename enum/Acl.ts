@@ -1,1 +1,1 @@
-export enum AclPolicy {Allow = 1, Deny}
+export const enum AclPolicy {Allow = 1, Deny}
