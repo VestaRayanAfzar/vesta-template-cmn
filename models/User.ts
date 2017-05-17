@@ -1,8 +1,5 @@
-import {IModelValues, Model} from "vesta-lib/Model";
-import {Schema} from "vesta-lib/Schema";
-import {FieldType} from "vesta-lib/Field";
-import {Database} from "vesta-lib/Database";
 import {IRoleGroup, RoleGroup} from "./RoleGroup";
+import {Model, Schema, Database, FieldType} from "@vesta/core";
 
 export const enum UserGender {Male = 1, Female}
 
@@ -33,7 +30,7 @@ export class User extends Model implements IUser {
     public image: File | string;
     public roleGroups: Array<number | IRoleGroup | RoleGroup> = [];
 
-    constructor(values?: IModelValues) {
+    constructor(values?: IUser) {
         super(User.schema, User.database);
         this.setValues(values);
     }

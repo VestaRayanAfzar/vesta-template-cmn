@@ -1,8 +1,4 @@
-import {IModelValues, Model} from "vesta-lib/Model";
-import {Schema} from "vesta-lib/Schema";
-import {FieldType} from "vesta-lib/Field";
-import {Database} from "vesta-lib/Database";
-
+import {Model, Schema, Database, IModelValues, FieldType} from "@vesta/core";
 export interface IPermissionAction {
     Read: string;
     Add: string;
@@ -26,7 +22,7 @@ export class Permission extends Model implements IPermission {
     public action: string;
     public status: boolean = true;
 
-    constructor(values?: IModelValues) {
+    constructor(values?: IPermission) {
         super(Permission.schema, Permission.database);
         this.setValues(values);
     }

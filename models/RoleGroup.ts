@@ -1,9 +1,6 @@
-import {IModelValues, Model} from "vesta-lib/Model";
-import {Schema} from "vesta-lib/Schema";
-import {FieldType} from "vesta-lib/Field";
-import {Database} from "vesta-lib/Database";
 import {IRole, Role} from "./Role";
 import {Status} from "../enum/Status";
+import {Model, Schema, Database, IModelValues, FieldType} from "@vesta/core";
 
 export interface IRoleGroup {
     id?: number;
@@ -23,7 +20,7 @@ export class RoleGroup extends Model implements IRoleGroup {
     public roles: Array<number | IRole | Role> = [];
     public status: Status = Status.Active;
 
-    constructor(values?: IModelValues) {
+    constructor(values?: IRoleGroup) {
         super(RoleGroup.schema, RoleGroup.database);
         this.setValues(values);
     }

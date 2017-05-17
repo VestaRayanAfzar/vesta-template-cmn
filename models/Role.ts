@@ -1,9 +1,6 @@
-import {IModelValues, Model} from "vesta-lib/Model";
-import {Schema} from "vesta-lib/Schema";
-import {FieldType} from "vesta-lib/Field";
-import {Database} from "vesta-lib/Database";
 import {IPermission, Permission} from "./Permission";
 import {Status} from "../enum/Status";
+import {Model, Schema, Database, IModelValues, FieldType} from "@vesta/core";
 
 export interface IRole {
     id?: number;
@@ -22,7 +19,7 @@ export class Role extends Model implements IRole {
     public permissions: Array<number | IPermission | Permission> = [];
     public status: Status = Status.Active;
 
-    constructor(values?: IModelValues) {
+    constructor(values?: IRole) {
         super(Role.schema, Role.database);
         this.setValues(values);
     }

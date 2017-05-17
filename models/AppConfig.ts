@@ -1,8 +1,5 @@
-import {IModelValues, Model} from "vesta-lib/Model";
-import {Schema} from "vesta-lib/Schema";
-import {FieldType} from "vesta-lib/Field";
-import {Database} from "vesta-lib/Database";
 import {LogLevel} from "../enum/Log";
+import {Model, Schema, Database, IModelValues, FieldType} from "@vesta/core";
 
 export interface IAppConfig {
     id?: number;
@@ -15,7 +12,7 @@ export class AppConfig extends Model implements IAppConfig {
     public id: number;
     public logLevel: LogLevel;
 
-    constructor(values?: IModelValues) {
+    constructor(values?: IAppConfig) {
         super(AppConfig.schema, AppConfig.database);
         this.setValues(values);
     }

@@ -1,5 +1,4 @@
-import {IVocabs} from "vesta-lib/Dictionary";
-
+import {IVocabs} from "@vesta/core";
 export const Dictionary: IVocabs = {
     login_title: 'ورود به سامانه',
     login: 'ورود',
