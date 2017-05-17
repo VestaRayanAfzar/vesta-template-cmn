@@ -1,4 +1,4 @@
-import {Model, Schema, Database, IModelValues, FieldType} from "@vesta/core";
+import {Model, Schema, Database, FieldType} from "@vesta/core";
 export interface IPermissionAction {
     Read: string;
     Add: string;
