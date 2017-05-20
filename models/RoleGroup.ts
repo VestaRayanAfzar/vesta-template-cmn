@@ -1,6 +1,6 @@
 import {IRole, Role} from "./Role";
 import {Status} from "../enum/Status";
-import {Model, Schema, Database, IModelValues, FieldType} from "@vesta/core";
+import {Model, Schema, Database, FieldType} from "@vesta/core";
 
 export interface IRoleGroup {
     id?: number;
