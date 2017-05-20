@@ -4,7 +4,7 @@ import {Model, Schema, Database, FieldType} from "@vesta/core";
 
 export interface IRoleGroup {
     id?: number;
-    name: string;
+    name?: string;
     desc?: string;
     roles?: Array<number | IRole | Role>;
     status?: Status;
