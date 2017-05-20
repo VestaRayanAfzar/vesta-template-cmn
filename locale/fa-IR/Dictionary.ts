@@ -1,4 +1,4 @@
-import {IVocabs} from "@vesta/core-es5";
+import {IVocabs} from "../medium";
 export const Dictionary: IVocabs = {
     login_title: 'ورود به سامانه',
     login: 'ورود',

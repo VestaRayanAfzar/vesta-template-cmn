@@ -1,5 +1,5 @@
 import {IRoleGroup, RoleGroup} from "./RoleGroup";
-import {Model, Schema, Database, FieldType} from "@vesta/core-es5";
+import {Model, Schema, Database, FieldType} from "../medium";
 
 export const enum UserGender {Male = 1, Female}
 
