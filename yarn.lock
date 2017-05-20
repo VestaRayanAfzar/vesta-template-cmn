@@ -2,6 +2,6 @@
 # yarn lockfile v1
 
 
-"@vesta/core@^0.2.0":
+"@vesta/core-es5@^0.2.0":
   version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@vesta/core/-/core-0.2.0.tgz#b9da4058c0227adbb198c660ef7e23e26078c028"
+  resolved "https://registry.yarnpkg.com/@vesta/core-es5/-/core-0.2.0.tgz#b9da4058c0227adbb198c660ef7e23e26078c028"

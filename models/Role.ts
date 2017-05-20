@@ -1,6 +1,6 @@
 import {IPermission, Permission} from "./Permission";
 import {Status} from "../enum/Status";
-import {Model, Schema, Database, FieldType} from "@vesta/core";
+import {Model, Schema, Database, FieldType} from "@vesta/core-es5";
 
 export interface IRole {
     id?: number;

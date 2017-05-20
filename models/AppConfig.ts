@@ -1,5 +1,5 @@
 import {LogLevel} from "../enum/Log";
-import {Model, Schema, Database, FieldType} from "@vesta/core";
+import {Model, Schema, Database, FieldType} from "@vesta/core-es5";
 
 export interface IAppConfig {
     id?: number;

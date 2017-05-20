@@ -12,6 +12,6 @@
   ],
   "repository": "https://github.com/VestaRayanAfzar/vesta-template-cmn.git",
   "dependencies": {
-    "@vesta/core": "^0.2.0"
+    "@vesta/core-es5": "^0.2.0"
   }
 }
