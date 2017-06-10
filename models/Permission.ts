@@ -1,4 +1,4 @@
-import {Model, Schema, Database, FieldType} from "../medium";
+import {Model, Schema, Database, FieldType} from "../../medium";
 export interface IPermissionAction {
     Read: string;
     Add: string;

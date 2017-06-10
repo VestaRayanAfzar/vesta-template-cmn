@@ -1,6 +1,5 @@
 .idea
 tsd-debug.*
 npm-debug.*
-medium.ts
 /build
 /node_modules

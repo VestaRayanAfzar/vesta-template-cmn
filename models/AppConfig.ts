@@ -1,5 +1,5 @@
 import {LogLevel} from "../enum/Log";
-import {Model, Schema, Database, FieldType} from "../medium";
+import {Model, Schema, Database, FieldType} from "../../medium";
 
 export interface IAppConfig {
     id?: number;
