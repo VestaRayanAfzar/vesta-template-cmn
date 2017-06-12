@@ -1,6 +1,6 @@
 import {IRole, Role} from "./Role";
 import {Status} from "../enum/Status";
-import {Model, Schema, Database, FieldType} from "../../medium";
+import {Database, FieldType, Model, Schema} from "../../medium";
 
 export interface IRoleGroup {
     id?: number;
