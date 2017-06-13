@@ -1,4 +1,5 @@
-import {IVocabs} from "../medium";
+import {IVocabs} from "../../../medium";
+
 export const Dictionary: IVocabs = {
     login_title: 'Sign In',
     login: 'Login',
