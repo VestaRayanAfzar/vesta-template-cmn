@@ -1,27 +1,20 @@
 import {Database, FieldType, Model, Schema} from "../../medium";
-
-export interface IPermissionAction {
-    Read: string;
-    Add: string;
-    Edit: string;
-    Delete: string;
-}
+import {Status} from "../enum/Status";
 
 export interface IPermission {
     id?: number;
     resource?: string;
     action?: string;
-    status?: boolean;
+    status?: Status;
 }
 
 export class Permission extends Model implements IPermission {
     public static schema: Schema = new Schema('Permission');
     public static database: Database;
-    public static Action: IPermissionAction = {Read: 'read', Add: 'add', Edit: 'edit', Delete: 'del'};
     public id: number;
     public resource: string;
     public action: string;
-    public status: boolean = true;
+    public status: Status = Status.Active;
 
     constructor(values?: IPermission) {
         super(Permission.schema, Permission.database);

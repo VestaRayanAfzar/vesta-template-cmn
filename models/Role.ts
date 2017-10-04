@@ -6,8 +6,8 @@ export interface IRole {
     id?: number;
     name?: string;
     desc?: string;
-    permissions?: Array<number | IPermission | Permission>;
     status?: Status;
+    permissions?: Array<number | IPermission | Permission>;
 }
 
 export class Role extends Model implements IRole {
@@ -16,8 +16,8 @@ export class Role extends Model implements IRole {
     public id: number;
     public name: string;
     public desc: string;
-    public permissions: Array<number | IPermission | Permission> = [];
     public status: Status = Status.Active;
+    public permissions: Array<number | IPermission | Permission> = [];
 
     constructor(values?: IRole) {
         super(Role.schema, Role.database);
@@ -28,6 +28,8 @@ export class Role extends Model implements IRole {
 Role.schema.addField('id').type(FieldType.Integer).primary();
 Role.schema.addField('name').type(FieldType.String).required().unique();
 Role.schema.addField('desc').type(FieldType.Text);
-Role.schema.addField('permissions').type(FieldType.Relation).areManyOf(Permission);
+///@status({"enum":{"options":["Status.Active", "Status.Inactive"], "path": "enum/Status"}})
 Role.schema.addField('status').type(FieldType.Enum).enum(Status.Active, Status.Inactive).required();
+///@permissions({"relation":{"model":"Permission"}})
+Role.schema.addField('permissions').type(FieldType.Relation).areManyOf(Permission);
 Role.schema.freeze();

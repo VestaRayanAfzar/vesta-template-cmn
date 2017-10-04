@@ -1,5 +1,5 @@
-import {IRoleGroup, RoleGroup} from "./RoleGroup";
 import {Database, FieldType, Model, Schema} from "../../medium";
+import {IRole, Role} from "./Role";
 
 export const enum UserGender {Male = 1, Female}
 
@@ -13,7 +13,7 @@ export interface IUser {
     birthDate?: number;
     gender?: UserGender;
     image?: File | string;
-    roleGroups?: Array<number | IRoleGroup | RoleGroup>;
+    role?: number | IRole | Role;
 }
 
 export class User extends Model implements IUser {
@@ -28,7 +28,7 @@ export class User extends Model implements IUser {
     public birthDate: number;
     public gender: UserGender;
     public image: File | string;
-    public roleGroups: Array<number | IRoleGroup | RoleGroup> = [];
+    public roleGroups: number | IRole | Role;
 
     constructor(values?: IUser) {
         super(User.schema, User.database);
@@ -46,5 +46,5 @@ User.schema.addField('password').type(FieldType.Password).required().minLength(4
 User.schema.addField('birthDate').type(FieldType.Timestamp);
 User.schema.addField('gender').type(FieldType.Enum).enum(UserGender.Male, UserGender.Female).default(UserGender.Male);
 User.schema.addField('image').type(FieldType.File).maxSize(6144).fileType('image/png', 'image/jpeg', 'image/pjpeg');
-User.schema.addField('roleGroups').type(FieldType.Relation).areManyOf(RoleGroup);
+User.schema.addField('role').type(FieldType.Relation).isOneOf(Role).required();
 User.schema.freeze();
