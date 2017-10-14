@@ -8,11 +8,13 @@ export const Dictionary: IVocabs = {
     yes: 'Yes',
     no: 'No',
     save: 'Save',
+    submit: 'Submit',
     edit: 'Edit',
     update: 'Update',
     cancel: 'Cancel',
     dashboard: 'Dashboard',
     about: 'About',
+    contact_us: 'Contact Us',
     send_reset: 'Send Reset Link',
     forget_pass: 'Forget Password',
     // model fields
@@ -29,6 +31,7 @@ export const Dictionary: IVocabs = {
     fld_permission: 'Permission',
     fld_resource: 'Resource',
     fld_action: 'Action',
+    fld_phone: 'Phone',
     //
     mdl_role: 'Role',
     //
@@ -37,6 +40,7 @@ export const Dictionary: IVocabs = {
     enum_male: 'Male',
     enum_female: 'Female',
     //
+    title_record_detail: 'View % details #%',
     title_record_add: 'Add new %',
     title_record_edit: 'Edit % #%',
     //
@@ -51,6 +55,7 @@ export const Dictionary: IVocabs = {
     err_file_size: 'File size should be less than %',
     err_enum: 'Invalid option',
     err_login: 'Username/Password combination is not correct',
+    err_phone:'Invalid phone number',
     //
     info_add_record: 'Record #% has been added successfully',
     info_update_record: 'Record #% has been updated successfully',
@@ -59,4 +64,5 @@ export const Dictionary: IVocabs = {
     msg_delete_confirm: 'Are you sure about deleting %?',
     msg_inprogress: 'Operation in progress...',
     msg_wait: 'please wait!'
+    // application
 };
