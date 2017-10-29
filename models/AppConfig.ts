@@ -1,5 +1,8 @@
+import {Model} from "../core/Model";
+import {Schema} from "../core/Schema";
+import {Database} from "../core/Database";
+import {FieldType} from "../core/Field";
 import {LogLevel} from "../enum/Log";
-import {Database, FieldType, Model, Schema} from "../../medium";
 
 export interface IAppConfig {
     id?: number;

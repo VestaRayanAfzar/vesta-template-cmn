@@ -1,4 +1,7 @@
-import {Database, FieldType, Model, Schema} from "../../medium";
+import {Model} from "../core/Model";
+import {Schema} from "../core/Schema";
+import {Database} from "../core/Database";
+import {FieldType} from "../core/Field";
 import {Status} from "../enum/Status";
 
 export interface IPermission {
