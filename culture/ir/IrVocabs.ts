@@ -95,6 +95,10 @@ export const IrVocabs: IVocabs = {
     err_device: 'خطا در دستگاه شما',
     err_net_conn: 'مشکل ارتباط با شبکه',
     err_unknown: 'خطای نامشخص',
+    err_admin_login: 'ادمین نمی تواند در اپ وارد شود',
+    err_user_admin_login: 'شما حق ورود به پنل مدیریت را ندارید',
+    err_none_user_login: 'برای ورود به این برنامه باید ثبت نام کنید',
+    err_sms: 'در ارسال پیام به همراه شما مشکلی رخ داده است',
     " [unexpected end of json input]": 'امکان برقراری ارتباط با سرور وجود ندارد',
     " [unexpected end of input]": 'امکان برقراری ارتباط با سرور وجود ندارد',
     //

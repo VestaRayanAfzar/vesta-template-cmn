@@ -64,10 +64,10 @@ User.schema.addField('username').type(FieldType.String).unique().minLength(4).ma
 // if maxLength is provided, the regenerate schema will enforce that length which is not enough for hashing
 ///@password({"confidential":true})
 User.schema.addField('password').type(FieldType.Password).required().minLength(4).assert((password: string) => password.length < 16);
-User.schema.addField('firstName').type(FieldType.String).minLength(2);
-User.schema.addField('lastName').type(FieldType.String).minLength(2);
+User.schema.addField('firstName').type(FieldType.String).minLength(2).maxLength(32);
+User.schema.addField('lastName').type(FieldType.String).minLength(2).maxLength(64);
 User.schema.addField('email').type(FieldType.EMail).unique();
-User.schema.addField('mobile').type(FieldType.Tel).required().unique().minLength(9).maxLength(12);
+User.schema.addField('mobile').type(FieldType.Tel).required().unique().minLength(8).maxLength(12);
 User.schema.addField('birthDate').type(FieldType.Timestamp);
 ///@gender({"enum":{"options":["UserGender.Male","UserGender.Female"]}})
 User.schema.addField('gender').type(FieldType.Enum).enum(UserGender.Male, UserGender.Female).default(UserGender.Male);
@@ -76,5 +76,6 @@ User.schema.addField('image').type(FieldType.File).maxSize(6144).fileType('image
 User.schema.addField('status').type(FieldType.Enum).required().enum(Status.Active, Status.Inactive).default(Status.Active);
 ///@role({"relation":{"model":"Role"}})
 User.schema.addField('role').type(FieldType.Relation).isOneOf(Role).required();
+///@sourceApp({"form":false,"list":false})
 User.schema.addField('sourceApp').type(FieldType.Enum).enum(SourceApp.Panel, SourceApp.EndUser);
 User.schema.freeze();
