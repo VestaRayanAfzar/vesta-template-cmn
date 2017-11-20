@@ -28,6 +28,9 @@ export const IrVocabs: IVocabs = {
     hour: 'ساعت',
     minute: 'دقیقه',
     no_records: 'رکوردی یافت نشد',
+    //
+    mdl_role: 'نقش',
+    mdl_context: 'متن پیش فرض',
     // model fields
     fld_id: 'کد',
     fld_username: 'نام کاربری',
@@ -46,9 +49,6 @@ export const IrVocabs: IVocabs = {
     fld_phone: 'شماره تماس',
     fld_address: 'آدرس',
     fld_date: 'تاریخ',
-    //
-    mdl_role: 'نقش',
-    mdl_request: 'درخواست',
     //
     enum_active: 'فعال',
     enum_inactive: 'غیرفعال',

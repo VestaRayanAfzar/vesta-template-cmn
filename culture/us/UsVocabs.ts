@@ -28,6 +28,9 @@ export const UsVocabs: IVocabs = {
     hour: 'Hour',
     minute: 'Minute',
     no_records: 'No record found',
+    //
+    mdl_role: 'Role',
+    mdl_context: 'Predefined text',
     // model fields
     fld_id: 'ID',
     fld_username: 'Username',
@@ -48,9 +51,6 @@ export const UsVocabs: IVocabs = {
     fld_phone: 'Phone',
     fld_address: 'Address',
     fld_date: 'Date',
-    //
-    mdl_role: 'Role',
-    mdl_request: 'Request',
     //
     enum_active: 'Active',
     enum_inactive: 'Inactive',
