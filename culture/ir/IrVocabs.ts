@@ -46,10 +46,6 @@ export const IrVocabs: IVocabs = {
     fld_phone: 'شماره تماس',
     fld_address: 'آدرس',
     fld_date: 'تاریخ',
-    fld_model: 'مدل',
-    fld_brand: 'برند',
-    fld_owner: 'صاحب',
-    fld_price: 'قیمت',
     //
     mdl_role: 'نقش',
     mdl_request: 'درخواست',
