@@ -28,9 +28,11 @@ export const IrVocabs: IVocabs = {
     hour: 'ساعت',
     minute: 'دقیقه',
     no_records: 'رکوردی یافت نشد',
+    profile: 'پروفایل',
     //
-    mdl_role: 'نقش',
-    mdl_context: 'متن پیش فرض',
+    mdl_role: 'نقش ها',
+    mdl_user: 'کاربرها',
+    mdl_context: 'متون پیش فرض',
     // model fields
     fld_id: 'کد',
     fld_username: 'نام کاربری',
@@ -39,6 +41,7 @@ export const IrVocabs: IVocabs = {
     fld_name: 'نام',
     fld_user: 'کاربر',
     fld_email: 'ایمیل',
+    fld_mobile: 'موبایل',
     fld_gender: 'جنسیت',
     fld_image: 'تصویر',
     fld_desc: 'توضیحات',
