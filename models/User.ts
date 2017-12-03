@@ -67,7 +67,7 @@ User.schema.addField('password').type(FieldType.Password).required().minLength(4
 User.schema.addField('firstName').type(FieldType.String).minLength(2).maxLength(32);
 User.schema.addField('lastName').type(FieldType.String).minLength(2).maxLength(64);
 User.schema.addField('email').type(FieldType.EMail).unique();
-User.schema.addField('mobile').type(FieldType.Tel).required().unique().minLength(8).maxLength(12);
+User.schema.addField('mobile').type(FieldType.Tel).unique().minLength(8).maxLength(12);
 User.schema.addField('birthDate').type(FieldType.Timestamp);
 ///@gender({"enum":{"options":["UserGender.Male","UserGender.Female"]}})
 User.schema.addField('gender').type(FieldType.Enum).enum(UserGender.Male, UserGender.Female).default(UserGender.Male);
