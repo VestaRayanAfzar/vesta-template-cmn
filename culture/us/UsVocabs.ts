@@ -28,9 +28,12 @@ export const UsVocabs: IVocabs = {
     hour: 'Hour',
     minute: 'Minute',
     no_records: 'No record found',
+    profile: 'Profile',
     //
     mdl_role: 'Role',
+    mdl_user: 'Users',
     mdl_context: 'Predefined text',
+    mdl_contact: 'Contact us',
     // model fields
     fld_id: 'ID',
     fld_username: 'Username',
@@ -41,6 +44,7 @@ export const UsVocabs: IVocabs = {
     fld_lastname: 'Last Name',
     fld_user: 'User',
     fld_email: 'Email',
+    fld_mobile: 'Mobile',
     fld_gender: 'Gender',
     fld_image: 'Image',
     fld_desc: 'Description',
@@ -51,6 +55,7 @@ export const UsVocabs: IVocabs = {
     fld_phone: 'Phone',
     fld_address: 'Address',
     fld_date: 'Date',
+    fld_title: 'Title',
     //
     enum_active: 'Active',
     enum_inactive: 'Inactive',
@@ -75,6 +80,7 @@ export const UsVocabs: IVocabs = {
     err_phone: 'Invalid phone number',
     err_url: 'Invalid address',
     err_validation: 'Invalid data',
+    err_email: 'Invalid email address',
     err_invalid_phone: 'Phone number does not exist. Please register',
     err_db_conn: 'Error connecting to database',
     err_db_op: 'Database operation failure',

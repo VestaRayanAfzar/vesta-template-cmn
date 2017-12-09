@@ -40,6 +40,8 @@ export const IrVocabs: IVocabs = {
     fld_password: 'کلمه عبور',
     fld_conf_password: 'تکرار کلمه عبور',
     fld_name: 'نام',
+    fld_firstname: 'نام',
+    fld_lastname: 'نام خانوادگی',
     fld_user: 'کاربر',
     fld_email: 'ایمیل',
     fld_mobile: 'موبایل',
