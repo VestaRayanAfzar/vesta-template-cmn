@@ -33,6 +33,7 @@ export const IrVocabs: IVocabs = {
     mdl_role: 'نقش ها',
     mdl_user: 'کاربرها',
     mdl_context: 'متون پیش فرض',
+    mdl_contact: 'تماس با ما',
     // model fields
     fld_id: 'کد',
     fld_username: 'نام کاربری',
@@ -52,6 +53,7 @@ export const IrVocabs: IVocabs = {
     fld_phone: 'شماره تماس',
     fld_address: 'آدرس',
     fld_date: 'تاریخ',
+    fld_title: 'عنوان',
     //
     enum_active: 'فعال',
     enum_inactive: 'غیرفعال',
@@ -113,7 +115,7 @@ export const IrVocabs: IVocabs = {
     //
     msg_delete_confirm: 'آیا در مورد حذف % مطمین هستید?',
     msg_inprogress: 'عملیات در حال اجرا...',
-    msg_register_ok: 'ثبت نام شما با موفقیت انجام شده است\nکلمه عبور به شماره وارد شده ارسال خواهد شد',
+    msg_register_ok: 'ثبت نام شما با موفقیت انجام شده است',
     msg_wait: 'لطفا منتظر باشید!',
     txt_change_pass: 'تغییر کلمه عبور',
     //////////////////////////////

@@ -63,7 +63,7 @@ User.schema.addField('type').type(FieldType.Object).required();
 User.schema.addField('username').type(FieldType.String).unique().minLength(4).maxLength(16);
 // if maxLength is provided, the regenerate schema will enforce that length which is not enough for hashing
 ///@password({"confidential":true})
-User.schema.addField('password').type(FieldType.Password).required().minLength(4).assert((password: string) => password.length < 16);
+User.schema.addField('password').type(FieldType.Password).required().minLength(6).assert((password: string) => password.length < 16);
 User.schema.addField('firstName').type(FieldType.String).minLength(2).maxLength(32);
 User.schema.addField('lastName').type(FieldType.String).minLength(2).maxLength(64);
 User.schema.addField('email').type(FieldType.EMail).unique();
