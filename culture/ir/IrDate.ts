@@ -231,12 +231,12 @@ export class IrDate extends DateTime {
         return this.gregorianDate.getTime();
     }
 
-    protected validateLocale(year: number, month: number, day: number): number {
+    protected validateLocale(year: number, month: number, day: number): boolean {
         let result = this.checkDate(year, month, day);
         if (result) {
             this.setFullYear(year, month - 1, day);
-            return this.gregorianDate.getTime();
+            return true;
         }
-        return 0;
+        return false;
     }
 }

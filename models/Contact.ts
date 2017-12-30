@@ -30,8 +30,8 @@ export class Contact extends Model implements IContact {
 
 Contact.schema.addField('id').type(FieldType.Integer).primary();
 Contact.schema.addField('title').type(FieldType.String).required().minLength(4).maxLength(255);
-Contact.schema.addField('content').type(FieldType.Text).required();
+Contact.schema.addField('content').type(FieldType.Text).required().minLength(10);
 Contact.schema.addField('date').type(FieldType.Timestamp).required();
-Contact.schema.addField('name').type(FieldType.String).required().minLength(3).maxLength(32);
+Contact.schema.addField('name').type(FieldType.String).minLength(3).maxLength(32);
 Contact.schema.addField('phone').type(FieldType.Tel);
 Contact.schema.freeze();

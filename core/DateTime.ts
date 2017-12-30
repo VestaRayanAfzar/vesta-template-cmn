@@ -56,29 +56,51 @@ export abstract class DateTime {
         return param;
     }
 
-    protected validateTime(hour: number, minute: number = 0, second: number = 0): number {
-        let milliseconds = 0;
-        if (0 < hour && hour < 25) milliseconds += hour * 60 * 60;
-        if (0 < minute && minute < 60) milliseconds += minute * 60;
-        if (0 < second && second < 60) milliseconds += second;
-        return milliseconds * 1000;
+    protected validateTime(hour: number, minute: number = 0, second: number = 0): boolean {
+        if (0 <= hour && hour < 24) {
+            this.setHours(hour, 0, 0);
+        } else {
+            return false;
+        }
+        if (0 <= minute && minute < 60) {
+            this.setMinutes(minute, 0);
+        } else {
+            return false;
+        }
+        if (0 <= second && second < 60) {
+            this.setSeconds(second);
+        } else {
+            return false;
+        }
+        return true;
     }
 
-    public validate(date: string, hasTime: boolean = false): number {
-        let result = 0;
-        if (!date) return result;
+    public validate(date: string, hasTime?: boolean): boolean {
+        if (!date) return false;
         let [dateStr, timeStr] = date.split(this.locale.dateTimeSep);
-        if (!dateStr) return result;
+        if (!dateStr) return false;
         let dateParts = dateStr.split(this.locale.dateSep);
-        if (!dateParts || dateParts.length != 3) return result;
-        result = this.validateLocale(+dateParts[0], +dateParts[1], +dateParts[2]);
-        if (hasTime && timeStr) {
+        if (!dateParts || dateParts.length != 3) return false;
+        const year = +dateParts[0];
+        const month = +dateParts[1];
+        const day = +dateParts[2];
+        if (!this.validateLocale(year, month, day)) return false;
+        if (hasTime && !timeStr) return false;
+        let hour = 0;
+        let minute = 0;
+        let second = 0;
+        if (hasTime) {
             let timeParts = timeStr.split(this.locale.timeSep);
-            if (timeParts.length >= 2) {
-                result += this.validateTime(+timeParts[0], +timeParts[1], +timeParts[2]);
-            }
+            hour = +timeParts[0];
+            minute = +timeParts[1];
+            second = timeParts[2] ? +timeParts[2] : 0;
+            if (isNaN(hour) || isNaN(minute) || isNaN(second)) return false;
+            if (!this.validateTime(hour, minute, second)) return false;
         }
-        return result;
+        // setting valid date-time
+        this.setFullYear(year, month, day);
+        if (hasTime) this.setHours(hour, minute, second);
+        return true;
     }
 
     public format(format: string) {
@@ -89,7 +111,7 @@ export abstract class DateTime {
         return parsed;
     }
 
-    protected abstract validateLocale(year: number, month: number, day: number): number;
+    protected abstract validateLocale(year: number, month: number, day: number): number | boolean;
 
     public abstract setFullYear(year: number, month?: number, date?: number);
 
