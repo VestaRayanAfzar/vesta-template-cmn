@@ -1,7 +1,7 @@
 import {IAssertCallback} from "./Validator";
 import {IModel} from "./Model";
 
-export const enum RelationType { One2One = 1, One2Many, Many2Many, Reverse}
+export const enum RelationType {One2Many = 1, Many2Many, Reverse}
 
 /**
  *
@@ -16,27 +16,6 @@ export interface IRelation {
     model: IModel;
     isWeek?: boolean;
 }
-
-
-/*export class Relationship implements IRelation {
- public static Type = {
- One2One: 1,
- One2Many: 2,
- Many2Many: 3
- };
- public type:number;
- public model:IModel;
- public isWeek:boolean = false;
-
- constructor(relationType:number) {
- this.type = relationType;
- }
-
- public relatedModel(model:IModel):Relationship {
- this.model = model;
- return this;
- }
- }*/
 
 export const enum FieldType {String = 1, Text, Password, Tel, EMail, URL, Number, Integer, Float, File, Timestamp, Boolean, Object, Enum, Relation, List}
 
@@ -161,13 +140,6 @@ export class Field {
     private setRelation(type: RelationType, model: IModel): Field {
         this._properties.relation = {type, model};
         return this;
-    }
-
-    /**
-     *  for one to one relationship
-     */
-    public isPartOf(model: IModel): Field {
-        return this.setRelation(RelationType.One2One, model);
     }
 
     /**
