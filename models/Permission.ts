@@ -1,22 +1,19 @@
-import {Model} from "../core/Model";
-import {Schema} from "../core/Schema";
-import {Database} from "../core/Database";
-import {FieldType} from "../core/Field";
-import {Status} from "../enum/Status";
+import { Database, FieldType, Model, Schema } from "../../medium";
+import { Status } from "../enum/Status";
 
 export interface IPermission {
     id?: number;
-    resource?: string;
     action?: string;
+    resource?: string;
     status?: Status;
 }
 
 export class Permission extends Model implements IPermission {
-    public static schema: Schema = new Schema('Permission');
     public static database: Database;
+    public static schema: Schema = new Schema("Permission");
     public id: number;
-    public resource: string;
     public action: string;
+    public resource: string;
     public status: Status = Status.Active;
 
     constructor(values?: IPermission) {
@@ -25,8 +22,8 @@ export class Permission extends Model implements IPermission {
     }
 }
 
-Permission.schema.addField('id').type(FieldType.Integer).primary();
-Permission.schema.addField('resource').type(FieldType.String).required();
-Permission.schema.addField('action').type(FieldType.String).required();
-Permission.schema.addField('status').type(FieldType.Boolean).default(true).required();
+Permission.schema.addField("id").type(FieldType.Integer).primary();
+Permission.schema.addField("action").type(FieldType.String).required();
+Permission.schema.addField("resource").type(FieldType.String).required();
+Permission.schema.addField("status").type(FieldType.Boolean).default(true).required();
 Permission.schema.freeze();

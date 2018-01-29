@@ -1,4 +1,4 @@
-import {IVocabs} from "../../core/Dictionary";
+import { IVocabs } from "../../../medium";
 
 export const IrVocabs: IVocabs = {
     //
@@ -21,12 +21,14 @@ export const IrVocabs: IVocabs = {
     contact_us: 'پشتیبانی',
     send_reset: 'ارسال کد بازنشانی',
     forget_pass: 'فراموشی کلمه عبور',
-    operations: 'عملیات ها',
+    operations: 'عملیات',
     description: 'توضیحات',
     year: 'سال',
     month: 'ماه',
     hour: 'ساعت',
     minute: 'دقیقه',
+    filemanager: 'مدیریت فایل‌ها',
+    app_update: 'درحال بروزرسانی...',
     no_records: 'رکوردی یافت نشد',
     profile: 'پروفایل',
     //

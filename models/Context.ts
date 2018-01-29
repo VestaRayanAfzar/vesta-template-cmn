@@ -1,7 +1,4 @@
-import {Model} from "../core/Model";
-import {Schema} from "../core/Schema";
-import {Database} from "../core/Database";
-import {FieldType} from "../core/Field";
+import { Database, FieldType, Model, Schema } from "../../medium";
 
 export interface IContext {
     id?: number;
@@ -10,8 +7,8 @@ export interface IContext {
 }
 
 export class Context extends Model implements IContext {
-    public static schema: Schema = new Schema('Context');
     public static database: Database;
+    public static schema: Schema = new Schema("Context");
     public id: number;
     public key: string;
     public value: string;
@@ -21,7 +18,7 @@ export class Context extends Model implements IContext {
         this.setValues(values);
     }
 }
-Context.schema.addField('id').type(FieldType.Integer).primary();
-Context.schema.addField('key').type(FieldType.String).required().unique().minLength(3).maxLength(10);
-Context.schema.addField('value').type(FieldType.Text).required();
+Context.schema.addField("id").type(FieldType.Integer).primary();
+Context.schema.addField("key").type(FieldType.String).required().unique().minLength(3).maxLength(10);
+Context.schema.addField("value").type(FieldType.Text).required();
 Context.schema.freeze();

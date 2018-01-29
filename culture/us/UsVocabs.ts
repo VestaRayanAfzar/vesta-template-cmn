@@ -1,4 +1,4 @@
-import {IVocabs} from "../../core/Dictionary";
+import { IVocabs } from "../../../medium";
 
 export const UsVocabs: IVocabs = {
     //

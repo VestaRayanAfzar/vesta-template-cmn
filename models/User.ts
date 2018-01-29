@@ -1,50 +1,47 @@
-import {Model} from "../core/Model";
-import {Schema} from "../core/Schema";
-import {Database} from "../core/Database";
-import {FieldType} from "../core/Field";
-import {IRole, Role} from "./Role";
-import {Status} from "../enum/Status";
+import { Database, FieldType, Model, Schema } from "../../medium";
+import { Status } from "../enum/Status";
+import { IRole, Role } from "./Role";
 
-export const enum UserGender {Male = 1, Female}
+export const enum UserGender { Male = 1, Female }
 
-export const enum UserType {Admin = 1, User}
+export const enum UserType { Admin = 1, User }
 
-export const enum SourceApp {Panel = 1, EndUser}
+export const enum SourceApp { Panel = 1, EndUser }
 
 export interface IUser {
     id?: number;
-    type?: any;
-    username?: string;
-    password?: string;
-    firstName?: string;
-    lastName?: string;
-    email?: string;
-    mobile?: string;
     birthDate?: number;
+    email?: string;
+    firstName?: string;
     gender?: UserGender;
     image?: File | string;
-    status?: Status;
+    lastName?: string;
+    mobile?: string;
+    password?: string;
     role?: number | IRole;
     sourceApp?: SourceApp;
+    status?: Status;
+    type?: any;
+    username?: string;
 }
 
 export class User extends Model implements IUser {
-    public static schema: Schema = new Schema('User');
     public static database: Database;
+    public static schema: Schema = new Schema("User");
     public id: number;
-    public type: any;
-    public username: string;
-    public password: string;
-    public firstName: string;
-    public lastName: string;
-    public email: string;
-    public mobile: string;
     public birthDate: number;
+    public email: string;
+    public firstName: string;
     public gender: UserGender;
     public image: File | string;
-    public status: Status;
+    public lastName: string;
+    public mobile: string;
+    public password: string;
     public role: number | IRole;
     public sourceApp: SourceApp;
+    public status: Status;
+    public type: any;
+    public username: string;
 
     constructor(values?: IUser) {
         super(User.schema, User.database);
@@ -57,25 +54,25 @@ export class User extends Model implements IUser {
 
 }
 
-User.schema.addField('id').type(FieldType.Integer).primary();
-///@type({"enum":{"options":["UserType.Admin","UserType.User"]}})
-User.schema.addField('type').type(FieldType.Object).required();
-User.schema.addField('username').type(FieldType.String).unique().minLength(4).maxLength(16);
+User.schema.addField("id").type(FieldType.Integer).primary();
+User.schema.addField("birthDate").type(FieldType.Timestamp);
+User.schema.addField("email").type(FieldType.EMail).unique();
+User.schema.addField("firstName").type(FieldType.String).minLength(2).maxLength(32);
+///@gender({"enum":{"options":["UserGender.Male","UserGender.Female"]}})
+User.schema.addField("gender").type(FieldType.Enum).enum(UserGender.Male, UserGender.Female).default(UserGender.Male);
+User.schema.addField("image").type(FieldType.File).maxSize(6144).fileType("image/png", "image/jpeg", "image/pjpeg");
+User.schema.addField("lastName").type(FieldType.String).minLength(2).maxLength(64);
+User.schema.addField("mobile").type(FieldType.Tel).unique().minLength(8).maxLength(12);
 // if maxLength is provided, the regenerate schema will enforce that length which is not enough for hashing
 ///@password({"confidential":true})
-User.schema.addField('password').type(FieldType.Password).required().minLength(6).assert((password: string) => password.length < 16);
-User.schema.addField('firstName').type(FieldType.String).minLength(2).maxLength(32);
-User.schema.addField('lastName').type(FieldType.String).minLength(2).maxLength(64);
-User.schema.addField('email').type(FieldType.EMail).unique();
-User.schema.addField('mobile').type(FieldType.Tel).unique().minLength(8).maxLength(12);
-User.schema.addField('birthDate').type(FieldType.Timestamp);
-///@gender({"enum":{"options":["UserGender.Male","UserGender.Female"]}})
-User.schema.addField('gender').type(FieldType.Enum).enum(UserGender.Male, UserGender.Female).default(UserGender.Male);
-User.schema.addField('image').type(FieldType.File).maxSize(6144).fileType('image/png', 'image/jpeg', 'image/pjpeg');
-///@status({"enum":{"options":["Status.Active","Status.Inactive"],"path":"enum/Status"}})
-User.schema.addField('status').type(FieldType.Enum).required().enum(Status.Active, Status.Inactive).default(Status.Active);
+User.schema.addField("password").type(FieldType.Password).required().minLength(6).assert((password: string) => password.length < 16);
 ///@role({"relation":{"model":"Role"}})
-User.schema.addField('role').type(FieldType.Relation).isOneOf(Role).required();
+User.schema.addField("role").type(FieldType.Relation).isOneOf(Role).required();
 ///@sourceApp({"form":false,"list":false})
-User.schema.addField('sourceApp').type(FieldType.Enum).enum(SourceApp.Panel, SourceApp.EndUser);
+User.schema.addField("sourceApp").type(FieldType.Enum).enum(SourceApp.Panel, SourceApp.EndUser);
+///@status({"enum":{"options":["Status.Active","Status.Inactive"],"path":"enum/Status"}})
+User.schema.addField("status").type(FieldType.Enum).required().enum(Status.Active, Status.Inactive).default(Status.Active);
+///@type({"enum":{"options":["UserType.Admin","UserType.User"]}})
+User.schema.addField("type").type(FieldType.Object).required();
+User.schema.addField("username").type(FieldType.String).unique().minLength(4).maxLength(16);
 User.schema.freeze();

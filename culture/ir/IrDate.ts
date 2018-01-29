@@ -1,14 +1,13 @@
-import {IrLocale} from "./IrLocale";
-import {DateTime} from "../../core/DateTime";
-import {ILocale} from "../../core/ILocale";
+import { DateTime, ILocale } from "../../../medium";
+import { IrLocale } from "./IrLocale";
 
 declare function parseInt(s: string | number, radix?: number): number;
 
 export class IrDate extends DateTime {
     public locale: ILocale = IrLocale;
     private gregorianDate: Date;
-    private persianDaysInMonth: Array<number> = IrLocale.daysInMonth;
     private gregorianDaysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    private persianDaysInMonth: Array<number> = IrLocale.daysInMonth;
 
     // constructor();
     // constructor(value:number);
@@ -21,9 +20,9 @@ export class IrDate extends DateTime {
     }
 
     public toGregorian(year: number, month: number, day: number): Array<number> {
-        let jy: number = year - 979;
-        let jm: number = month - 1;
-        let jd: number = day - 1;
+        const jy: number = year - 979;
+        const jm: number = month - 1;
+        const jd: number = day - 1;
 
         let j_day_no = 365 * jy + parseInt(jy / 33) * 8 + parseInt((jy % 33 + 3) / 4);
         for (let i = 0; i < jm; ++i) j_day_no += this.persianDaysInMonth[i];
@@ -37,8 +36,7 @@ export class IrDate extends DateTime {
         g_day_no = g_day_no % 146097;
 
         let leap = true;
-        if (g_day_no >= 36525) /* 36525 = 365*100 + 100/4 */
-        {
+        if (g_day_no >= 36525) /* 36525 = 365*100 + 100/4 */ {
             g_day_no--;
             gy += 100 * parseInt(g_day_no / 36524);
             /* 36524 = 365*100 + 100/4 - 100/100 */
@@ -64,8 +62,8 @@ export class IrDate extends DateTime {
         let i = 0;
         for (; g_day_no >= this.gregorianDaysInMonth[i] + (i == 1 && leap ? 1 : 0); i++)
             g_day_no -= this.gregorianDaysInMonth[i] + (i == 1 && leap ? 1 : 0);
-        let gm = i + 1;
-        let gd = g_day_no + 1;
+        const gm = i + 1;
+        const gd = g_day_no + 1;
 
         return [gy, gm, gd];
     }
@@ -74,22 +72,22 @@ export class IrDate extends DateTime {
         //year = parseInt(year);
         //month = parseInt(month);
         //day = parseInt(day);
-        let gy: number = year - 1600;
-        let gm: number = month - 1;
-        let gd: number = day - 1;
+        const gy: number = year - 1600;
+        const gm: number = month - 1;
+        const gd: number = day - 1;
 
         let g_day_no = 365 * gy + parseInt((gy + 3) / 4) - parseInt((gy + 99) / 100) + parseInt((gy + 399) / 400);
 
         for (let i = 0; i < gm; ++i)
             g_day_no += this.gregorianDaysInMonth[i];
         if (gm > 1 && ((gy % 4 == 0 && gy % 100 != 0) || (gy % 400 == 0)))
-        /* leap and after Feb */
+            /* leap and after Feb */
             ++g_day_no;
         g_day_no += gd;
 
         let j_day_no = g_day_no - 79;
 
-        let j_np = parseInt(j_day_no / 12053);
+        const j_np = parseInt(j_day_no / 12053);
         j_day_no %= 12053;
 
         let jy = 979 + 33 * j_np + 4 * parseInt(j_day_no / 1461);
@@ -104,8 +102,8 @@ export class IrDate extends DateTime {
         for (; i < 11 && j_day_no >= this.persianDaysInMonth[i]; ++i) {
             j_day_no -= this.persianDaysInMonth[i];
         }
-        let jm = i + 1;
-        let jd = j_day_no + 1;
+        const jm = i + 1;
+        const jd = j_day_no + 1;
 
 
         return [jy, jm, jd];
@@ -122,7 +120,7 @@ export class IrDate extends DateTime {
     }
 
     public setFullYear(year: number, month?: number, date?: number) {
-        let persianDate = this.toPersian(this.gregorianDate.getFullYear(), this.gregorianDate.getMonth() + 1, this.gregorianDate.getDate());
+        const persianDate = this.toPersian(this.gregorianDate.getFullYear(), this.gregorianDate.getMonth() + 1, this.gregorianDate.getDate());
         if (year < 100) year += 1300;
         persianDate[0] = year;
         if (month != undefined) {
@@ -133,32 +131,32 @@ export class IrDate extends DateTime {
             persianDate[1] = month + 1;
         }
         if (date != undefined) persianDate[2] = date;
-        let g = this.toGregorian(persianDate[0], persianDate[1], persianDate[2]);
+        const g = this.toGregorian(persianDate[0], persianDate[1], persianDate[2]);
         return this.gregorianDate.setFullYear(g[0], g[1] - 1, g[2]);
     }
 
     public setMonth(month: number, date?: number) {
-        let gd = this.gregorianDate.getDate();
-        let gm = this.gregorianDate.getMonth();
-        let gy = this.gregorianDate.getFullYear();
-        let j = this.toPersian(gy, gm + 1, gd);
+        const gd = this.gregorianDate.getDate();
+        const gm = this.gregorianDate.getMonth();
+        const gy = this.gregorianDate.getFullYear();
+        const j = this.toPersian(gy, gm + 1, gd);
         if (month > 11) {
             j[0] += Math.floor(month / 12);
             month = month % 12;
         }
         j[1] = month + 1;
         if (date != undefined) j[2] = date;
-        let g = this.toGregorian(j[0], j[1], j[2]);
+        const g = this.toGregorian(j[0], j[1], j[2]);
         return this.gregorianDate.setFullYear(g[0], g[1] - 1, g[2]);
     }
 
     public setDate(d: number) {
-        let gd = this.gregorianDate.getDate();
-        let gm = this.gregorianDate.getMonth();
-        let gy = this.gregorianDate.getFullYear();
-        let j = this.toPersian(gy, gm + 1, gd);
+        const gd = this.gregorianDate.getDate();
+        const gm = this.gregorianDate.getMonth();
+        const gy = this.gregorianDate.getFullYear();
+        const j = this.toPersian(gy, gm + 1, gd);
         j[2] = d;
-        let g = this.toGregorian(j[0], j[1], j[2]);
+        const g = this.toGregorian(j[0], j[1], j[2]);
         return this.gregorianDate.setFullYear(g[0], g[1] - 1, g[2]);
     }
 
@@ -178,26 +176,26 @@ export class IrDate extends DateTime {
     }
 
     public getFullYear() {
-        let gd = this.gregorianDate.getDate();
-        let gm = this.gregorianDate.getMonth();
-        let gy = this.gregorianDate.getFullYear();
-        let j = this.toPersian(gy, gm + 1, gd);
+        const gd = this.gregorianDate.getDate();
+        const gm = this.gregorianDate.getMonth();
+        const gy = this.gregorianDate.getFullYear();
+        const j = this.toPersian(gy, gm + 1, gd);
         return j[0];
     }
 
     public getMonth() {
-        let gd = this.gregorianDate.getDate();
-        let gm = this.gregorianDate.getMonth();
-        let gy = this.gregorianDate.getFullYear();
-        let j = this.toPersian(gy, gm + 1, gd);
+        const gd = this.gregorianDate.getDate();
+        const gm = this.gregorianDate.getMonth();
+        const gy = this.gregorianDate.getFullYear();
+        const j = this.toPersian(gy, gm + 1, gd);
         return j[1] - 1;
     }
 
     public getDate() {
-        let gd = this.gregorianDate.getDate();
-        let gm = this.gregorianDate.getMonth();
-        let gy = this.gregorianDate.getFullYear();
-        let j = this.toPersian(gy, gm + 1, gd);
+        const gd = this.gregorianDate.getDate();
+        const gm = this.gregorianDate.getMonth();
+        const gy = this.gregorianDate.getFullYear();
+        const j = this.toPersian(gy, gm + 1, gd);
         return j[2];
     }
 
@@ -232,7 +230,7 @@ export class IrDate extends DateTime {
     }
 
     protected validateLocale(year: number, month: number, day: number): boolean {
-        let result = this.checkDate(year, month, day);
+        const result = this.checkDate(year, month, day);
         if (result) {
             this.setFullYear(year, month - 1, day);
             return true;

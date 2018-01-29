@@ -1,6 +1,5 @@
-import {UsLocale} from "./UsLocale";
-import {DateTime} from "../../core/DateTime";
-import {ILocale} from "../../core/ILocale";
+import { DateTime, ILocale } from "../../../medium";
+import { UsLocale } from "./UsLocale";
 
 export class UsDate extends DateTime {
     public locale: ILocale = UsLocale;
@@ -79,9 +78,9 @@ export class UsDate extends DateTime {
     }
 
     protected validateLocale(year: number, month: number, day: number): number {
-        let date = new Date(year, month, day);
-        let timestamp = date.getTime();
-        if (isNaN(timestamp)) return 0;
+        const date = new Date(year, month, day);
+        const timestamp = date.getTime();
+        if (isNaN(timestamp)) { return 0; }
         return timestamp;
     }
 }
