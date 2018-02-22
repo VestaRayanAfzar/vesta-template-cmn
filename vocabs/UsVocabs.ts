@@ -143,6 +143,8 @@ export const UsVocabs: IVocabs = {
     msg_wait: "Please wait!",
     txt_change_pass: "Change password",
     txt_change_image: "Change image",
+    register_accept: "I agree with rules and laws",
+    call_support: "Call support",
     //////////////////////////////
     // application
 };

@@ -143,6 +143,8 @@ export const IrVocabs: IVocabs = {
     msg_wait: "لطفا منتظر باشید!",
     txt_change_pass: "تغییر کلمه عبور",
     txt_change_image: "تغییر عکس",
+    register_accept: "با قوانین و مقررات موافقم",
+    call_support: "تماس با پشتیبانی",
     //////////////////////////////
     // application
 };
