@@ -3,5 +3,5 @@ export interface IFile {
     path?: string;
     mime?: string;
     isDirectory?: boolean;
-    children?: Array<IFile>;
+    children?: IFile[];
 }

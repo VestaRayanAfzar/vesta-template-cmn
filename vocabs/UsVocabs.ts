@@ -1,5 +1,5 @@
 import { IVocabs } from "../../medium";
-
+/* tslint:disable */
 export const UsVocabs: IVocabs = {
     //
     login: "Login",

@@ -1,5 +1,5 @@
 import { IVocabs } from "../../medium";
-
+/* tslint:disable */
 export const IrVocabs: IVocabs = {
     //
     login: "ورود",

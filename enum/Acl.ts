@@ -1,23 +1,23 @@
-export const enum AclPolicy {Allow = 1, Deny}
+export const enum AclPolicy { Allow = 1, Deny }
 
 export interface IAclAction {
-    All: string;
-    Read: string;
     Add: string;
-    Edit: string;
+    All: string;
     Delete: string;
-    Login: string;
-    Register: string;
+    Edit: string;
     Forget: string;
+    Login: string;
+    Read: string;
+    Register: string;
 }
 
 export const AclAction: IAclAction = {
-    All: '*',
-    Read: 'read',
-    Add: 'add',
-    Edit: 'edit',
-    Delete: 'del',
-    Login: 'login',
-    Register: 'register',
-    Forget: 'forget'
+    Add: "add",
+    All: "*",
+    Delete: "del",
+    Edit: "edit",
+    Forget: "forget",
+    Login: "login",
+    Read: "read",
+    Register: "register",
 };
