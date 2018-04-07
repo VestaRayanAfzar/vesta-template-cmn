@@ -10,7 +10,7 @@ export interface ICmnConfig {
     version: IVersion;
 }
 
-export const CmnConfig: ICmnConfig = {
+export const cmnConfig: ICmnConfig = {
     locale: "fa-IR",
     name: "vesta",
     version: {
