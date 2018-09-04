@@ -23,6 +23,7 @@ export interface IUser {
     status?: Status;
     type?: any;
     username?: string;
+    locale?: string;
 }
 
 export class User extends Model implements IUser {
@@ -42,6 +43,7 @@ export class User extends Model implements IUser {
     public status: Status;
     public type: any;
     public username: string;
+    public locale: string;
 
     constructor(values?: IUser) {
         super(User.schema, User.database);
@@ -73,4 +75,5 @@ User.schema.addField("status").type(FieldType.Enum).required().enum(Status.Activ
     .default(Status.Active);
 User.schema.addField("type").type(FieldType.Object).required();
 User.schema.addField("username").type(FieldType.String).unique().minLength(4).maxLength(16);
+User.schema.addField("locale").type(FieldType.String).minLength(4).maxLength(6);
 User.schema.freeze();

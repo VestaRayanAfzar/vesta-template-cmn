@@ -1,6 +1,6 @@
 import { Database, FieldType, Model, Schema } from "../../medium";
-import {Status} from "../enum/Status";
-import {IPermission, Permission} from "./Permission";
+import { Status } from "../enum/Status";
+import { IPermission, Permission } from "./Permission";
 
 export interface IRole {
     id?: number;
