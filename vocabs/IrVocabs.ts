@@ -64,6 +64,7 @@ export const IrVocabs: IVocabs = {
     fld_name: "نام",
     fld_firstname: "نام",
     fld_lastname: "نام خانوادگی",
+    fld_birth_date: "تاریخ تولد",
     fld_user: "کاربر",
     fld_email: "ایمیل",
     fld_mobile: "موبایل",
@@ -138,6 +139,7 @@ export const IrVocabs: IVocabs = {
     info_delete_record: "رکورد شماره % با موفقیت حذف گردید",
     info_forget: "کلمه عبور جدید به شماره شما ارسال گردید",
     //
+    msg_profile_update: "اطلاعات کاربری با موفقیت بروزرسانی گردید",
     msg_delete_confirm: "آیا در مورد حذف % مطمین هستید?",
     msg_inprogress: "عملیات در حال اجرا...",
     msg_register_ok: "ثبت نام شما با موفقیت انجام شده است",

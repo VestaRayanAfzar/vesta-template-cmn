@@ -64,6 +64,7 @@ export const UsVocabs: IVocabs = {
     fld_name: "Name",
     fld_firstname: "First Name",
     fld_lastname: "Last Name",
+    fld_birth_date: "Birth Date",
     fld_user: "User",
     fld_email: "Email",
     fld_mobile: "Mobile",
