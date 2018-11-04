@@ -138,9 +138,10 @@ export const IrVocabs: IVocabs = {
     info_update_record: "رکورد شماره % با موفقیت بروزرسانی گردید",
     info_delete_record: "رکورد شماره % با موفقیت حذف گردید",
     info_forget: "کلمه عبور جدید به شماره شما ارسال گردید",
+    title_record_delete: "تایید حذف رکورد",
     //
     msg_profile_update: "اطلاعات کاربری با موفقیت بروزرسانی گردید",
-    msg_delete_confirm: "آیا در مورد حذف % مطمین هستید?",
+    msg_delete_confirm: "آیا در مورد حذف این رکورد مطمین هستید?",
     msg_inprogress: "عملیات در حال اجرا...",
     msg_register_ok: "ثبت نام شما با موفقیت انجام شده است",
     msg_wait: "لطفا منتظر باشید!",

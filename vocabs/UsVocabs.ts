@@ -138,9 +138,10 @@ export const UsVocabs: IVocabs = {
     info_update_record: "Record #% has been updated successfully",
     info_delete_record: "Record #% has been deleted successfully",
     info_forget: "New password has been sent to your number",
+    title_record_delete: "Delete Confirmation",
     //
     msg_profile_update: "Profile has been updated successfully",
-    msg_delete_confirm: "Are you sure about deleting %?",
+    msg_delete_confirm: "Are you sure about deleting this record?",
     msg_inprogress: "Operation in progress",
     msg_register_ok: "Congratulations! You have been registered successfully",
     msg_wait: "Please wait!",
