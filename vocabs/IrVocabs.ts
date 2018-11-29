@@ -1,4 +1,4 @@
-import { IVocabs } from "../../medium";
+import { IVocabs } from "@vesta/core";
 /* tslint:disable */
 export const IrVocabs: IVocabs = {
     //

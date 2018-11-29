@@ -1,4 +1,4 @@
-import { Database, FieldType, Model, Schema } from "../../medium";
+import { Database, FieldType, Model, Schema } from "@vesta/core";
 import { Status } from "../enum/Status";
 
 export interface IPermission {
