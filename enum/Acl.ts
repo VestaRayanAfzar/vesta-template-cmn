@@ -1,4 +1,4 @@
-export const enum AclPolicy { Allow = 1, Deny }
+export enum AclPolicy { Allow = 1, Deny }
 
 export interface IAclAction {
     Add: string;
