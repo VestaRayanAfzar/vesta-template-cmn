@@ -1,4 +1,4 @@
-import { IVocabs } from "@vesta/core";
+import { IVocabs } from "@vesta/culture";
 /* tslint:disable */
 export const UsVocabs: IVocabs = {
     //
