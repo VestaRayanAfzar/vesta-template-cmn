@@ -71,9 +71,8 @@ User.schema.addField("password").type(FieldType.Password).required().minLength(6
 User.schema.addField("role").type(FieldType.Relation).isOneOf(Role).required();
 // @sourceApp({"form":false,"list":false})
 User.schema.addField("sourceApp").type(FieldType.Enum).enum(SourceApp.Panel, SourceApp.EndUser);
-User.schema.addField("status").type(FieldType.Enum).required().enum(Status.Active, Status.Inactive)
-    .default(Status.Active);
+User.schema.addField("status").type(FieldType.Enum).required().enum(Status.Active, Status.Inactive).default(Status.Active);
 User.schema.addField("type").type(FieldType.Object).required();
-User.schema.addField("username").type(FieldType.String).unique().minLength(4).maxLength(16);
+User.schema.addField("username").type(FieldType.String).required().unique().minLength(4).maxLength(16);
 User.schema.addField("locale").type(FieldType.String).minLength(4).maxLength(6);
 User.schema.freeze();
