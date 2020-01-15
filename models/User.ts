@@ -2,11 +2,11 @@ import { Database, FieldType, Model, Schema } from "@vesta/core";
 import { Status } from "../enum/Status";
 import { IRole, Role } from "./Role";
 
-export const enum UserGender { Male = 1, Female }
+export enum UserGender { Male = 1, Female }
 
-export const enum UserType { Admin = 1, User }
+export enum UserType { Admin = 1, User }
 
-export const enum SourceApp { Panel = 1, EndUser }
+export enum SourceApp { Panel = 1, EndUser }
 
 export interface IUser {
     id?: number;

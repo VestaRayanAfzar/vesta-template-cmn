@@ -1,13 +1,13 @@
 import { Database, FieldType, Model, Schema } from "@vesta/core";
-
-export enum LogLevel { None, Error, Warn, Info }
+import { LogLevel } from "@vesta/services";
+import { getEnumValues } from "../enum/getEnumData";
 
 export interface ILog {
     id?: number;
-    file?: string;
-    level?: LogLevel;
-    message?: string;
-    method?: string;
+    file: string;
+    level: LogLevel;
+    message: string;
+    method: string;
 }
 
 export class Log extends Model implements ILog {

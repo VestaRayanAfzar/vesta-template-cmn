@@ -1,4 +1,4 @@
-import { IVocabs } from "@vesta/core";
+import { IVocabs } from "@vesta/culture";
 /* tslint:disable */
 export const UsVocabs: IVocabs = {
     //
@@ -11,7 +11,7 @@ export const UsVocabs: IVocabs = {
     yes: "Yes",
     no: "No",
     save: "Save",
-    add: "Ass",
+    add: "Add",
     submit: "Submit",
     edit: "Edit",
     update: "Update",
@@ -32,6 +32,9 @@ export const UsVocabs: IVocabs = {
     app_update: "Updating...",
     no_records: "No record found",
     profile: "Profile",
+    confirm: "Confirmed",
+    please_wait: "Please Wait",
+    operation_in_progress: "Operation In Progress ...",
     // general fields
     fld_id: "Id",
     fld_status: "Status",
@@ -145,6 +148,7 @@ export const UsVocabs: IVocabs = {
     msg_inprogress: "Operation in progress",
     msg_register_ok: "Congratulations! You have been registered successfully",
     msg_wait: "Please wait!",
+    msg_reset_pass: "Your new password is %",
     txt_change_pass: "Change password",
     txt_change_image: "Change image",
     register_accept: "I agree with rules and laws",

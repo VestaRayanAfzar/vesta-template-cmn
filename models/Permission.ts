@@ -3,9 +3,9 @@ import { Status } from "../enum/Status";
 
 export interface IPermission {
     id?: number;
-    action?: string;
-    resource?: string;
-    status?: Status;
+    action: string;
+    resource: string;
+    status: Status;
 }
 
 export class Permission extends Model implements IPermission {

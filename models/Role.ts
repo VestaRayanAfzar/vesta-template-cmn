@@ -1,4 +1,5 @@
 import { Database, FieldType, Model, Schema } from "@vesta/core";
+import { getEnumValues } from "../enum/getEnumData";
 import { Status } from "../enum/Status";
 import { IPermission, Permission } from "./Permission";
 
