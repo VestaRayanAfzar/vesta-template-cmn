@@ -1,13 +1,12 @@
 import { Database, FieldType, Model, Schema } from "@vesta/core";
 import { LogLevel } from "@vesta/services";
-import { getEnumValues } from "../enum/getEnumData";
 
 export interface ILog {
     id?: number;
-    file: string;
-    level: LogLevel;
-    message: string;
-    method: string;
+    file?: string;
+    level?: LogLevel;
+    message?: string;
+    method?: string;
 }
 
 export class Log extends Model implements ILog {
@@ -28,7 +27,7 @@ export class Log extends Model implements ILog {
 Log.schema.addField("id").type(FieldType.Integer).primary();
 Log.schema.addField("file").type(FieldType.String);
 Log.schema.addField("level").type(FieldType.Enum).required()
-    .enum(LogLevel.Error, LogLevel.Warn, LogLevel.Info, LogLevel.None).default(LogLevel.Error);
+    .enum(LogLevel.Error, LogLevel.Warning, LogLevel.Info, LogLevel.None).default(LogLevel.Error);
 Log.schema.addField("message").type(FieldType.String).required();
 Log.schema.addField("method").type(FieldType.String);
 Log.schema.freeze();

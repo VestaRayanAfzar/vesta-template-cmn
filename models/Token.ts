@@ -3,8 +3,8 @@ import { IUser, User } from "./User";
 
 export interface IToken {
     id?: number;
-    token: string;
-    user: number | IUser;
+    token?: string;
+    user?: number | IUser;
 }
 
 export interface IExtToken extends IToken {
