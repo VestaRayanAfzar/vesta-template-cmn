@@ -18,3 +18,5 @@ export const cmnConfig: ICmnConfig = {
         app: "0.1.0",
     },
 };
+
+export default cmnConfig;
