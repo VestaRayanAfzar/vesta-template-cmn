@@ -1,10 +1,12 @@
 import { Database, FieldType, Model, Schema } from "@vesta/core";
+
+import { IPermission as ISimplePermission } from "@vesta/services";
 import { Status } from "../enum/Status";
 
-export interface IPermission {
+export interface IPermission extends ISimplePermission {
     id?: number;
-    action?: string;
-    resource?: string;
+    // action?: string;
+    // resource?: string;
     status?: Status;
 }
 
@@ -22,8 +24,21 @@ export class Permission extends Model implements IPermission {
     }
 }
 
-Permission.schema.addField("id").type(FieldType.Integer).primary();
-Permission.schema.addField("action").type(FieldType.String).required();
-Permission.schema.addField("resource").type(FieldType.String).required();
-Permission.schema.addField("status").type(FieldType.Boolean).default(true).required();
+Permission.schema
+    .addField("id")
+    .type(FieldType.Integer)
+    .primary();
+Permission.schema
+    .addField("action")
+    .type(FieldType.String)
+    .required();
+Permission.schema
+    .addField("resource")
+    .type(FieldType.String)
+    .required();
+Permission.schema
+    .addField("status")
+    .type(FieldType.Boolean)
+    .default(true)
+    .required();
 Permission.schema.freeze();
