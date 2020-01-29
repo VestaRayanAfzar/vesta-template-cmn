@@ -25,10 +25,29 @@ export class Support extends Model implements ISupport {
     }
 }
 
-Support.schema.addField("id").type(FieldType.Integer).primary();
-Support.schema.addField("content").type(FieldType.Text).required().minLength(10);
-Support.schema.addField("date").type(FieldType.Timestamp).required();
-Support.schema.addField("name").type(FieldType.String).minLength(3).maxLength(32);
+Support.schema
+    .addField("id")
+    .type(FieldType.Integer)
+    .primary();
+Support.schema
+    .addField("content")
+    .type(FieldType.Text)
+    .required()
+    .minLength(10);
+Support.schema
+    .addField("date")
+    .type(FieldType.Timestamp)
+    .required();
+Support.schema
+    .addField("name")
+    .type(FieldType.String)
+    .minLength(3)
+    .maxLength(32);
 Support.schema.addField("phone").type(FieldType.Tel);
-Support.schema.addField("title").type(FieldType.String).required().minLength(4).maxLength(255);
+Support.schema
+    .addField("title")
+    .type(FieldType.String)
+    .required()
+    .minLength(4)
+    .maxLength(255);
 Support.schema.freeze();

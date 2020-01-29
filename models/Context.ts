@@ -18,7 +18,19 @@ export class Context extends Model implements IContext {
         this.setValues(values);
     }
 }
-Context.schema.addField("id").type(FieldType.Integer).primary();
-Context.schema.addField("key").type(FieldType.String).required().unique().minLength(3).maxLength(10);
-Context.schema.addField("value").type(FieldType.Text).required();
+Context.schema
+    .addField("id")
+    .type(FieldType.Integer)
+    .primary();
+Context.schema
+    .addField("key")
+    .type(FieldType.String)
+    .required()
+    .unique()
+    .minLength(3)
+    .maxLength(10);
+Context.schema
+    .addField("value")
+    .type(FieldType.Text)
+    .required();
 Context.schema.freeze();

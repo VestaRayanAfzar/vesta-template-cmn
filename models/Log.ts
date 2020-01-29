@@ -24,10 +24,20 @@ export class Log extends Model implements ILog {
     }
 }
 
-Log.schema.addField("id").type(FieldType.Integer).primary();
+Log.schema
+    .addField("id")
+    .type(FieldType.Integer)
+    .primary();
 Log.schema.addField("file").type(FieldType.String);
-Log.schema.addField("level").type(FieldType.Enum).required()
-    .enum(LogLevel.Error, LogLevel.Warning, LogLevel.Info, LogLevel.None).default(LogLevel.Error);
-Log.schema.addField("message").type(FieldType.String).required();
+Log.schema
+    .addField("level")
+    .type(FieldType.Enum)
+    .required()
+    .enum(LogLevel.Error, LogLevel.Warning, LogLevel.Info, LogLevel.None)
+    .default(LogLevel.Error);
+Log.schema
+    .addField("message")
+    .type(FieldType.String)
+    .required();
 Log.schema.addField("method").type(FieldType.String);
 Log.schema.freeze();

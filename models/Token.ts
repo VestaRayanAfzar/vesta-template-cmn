@@ -24,9 +24,20 @@ export class Token extends Model implements IToken {
     }
 }
 
-Token.schema.addField("id").type(FieldType.Integer).primary();
+Token.schema
+    .addField("id")
+    .type(FieldType.Integer)
+    .primary();
 // @token({"form":false,"list":false})
-Token.schema.addField("token").type(FieldType.String).required().unique();
+Token.schema
+    .addField("token")
+    .type(FieldType.String)
+    .required()
+    .unique();
 // @user({"verifyOwner":true})
-Token.schema.addField("user").type(FieldType.Relation).required().isOneOf(User);
+Token.schema
+    .addField("user")
+    .type(FieldType.Relation)
+    .required()
+    .isOneOf(User);
 Token.schema.freeze();

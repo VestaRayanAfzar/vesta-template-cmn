@@ -1,14 +1,10 @@
 import { Database, FieldType, Model, Schema } from "@vesta/core";
-import { IRole as ISimpleRole } from "@vesta/services";
-import { Status } from "../enum/Status";
+import { IRole as ISimpleRole, Status } from "@vesta/services";
 import { IPermission, Permission } from "./Permission";
 
 export interface IRole extends ISimpleRole {
     id?: number;
     desc?: string;
-    // name?: string;
-    // permissions?: Array<number | IPermission>;
-    // status?: Status;
 }
 
 export class Role extends Model implements IRole {
@@ -17,7 +13,7 @@ export class Role extends Model implements IRole {
     public id: number;
     public desc: string;
     public name: string;
-    public permissions: Array<number | IPermission> = [];
+    public permissions: number[] | IPermission[] = [];
     public status: Status = Status.Active;
 
     constructor(values?: IRole) {
