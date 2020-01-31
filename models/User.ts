@@ -12,11 +12,6 @@ export enum UserType {
     User,
 }
 
-export enum SourceApp {
-    Panel = 1,
-    EndUser,
-}
-
 export interface IUser {
     id?: number;
     birthDate?: number;
@@ -28,9 +23,8 @@ export interface IUser {
     mobile?: string;
     password?: string;
     role?: number | IRole;
-    sourceApp?: SourceApp;
     status?: Status;
-    type?: any;
+    type?: UserType[];
     username?: string;
     locale?: string;
 }
@@ -48,9 +42,8 @@ export class User extends Model implements IUser {
     public mobile: string;
     public password: string;
     public role: number | IRole;
-    public sourceApp: SourceApp;
     public status: Status;
-    public type: any;
+    public type: UserType[];
     public username: string;
     public locale: string;
 
@@ -112,11 +105,6 @@ User.schema
     .type(FieldType.Relation)
     .isOneOf(Role)
     .required();
-// @sourceApp({"form":false,"list":false})
-User.schema
-    .addField("sourceApp")
-    .type(FieldType.Enum)
-    .enum(SourceApp.Panel, SourceApp.EndUser);
 User.schema
     .addField("status")
     .type(FieldType.Enum)
@@ -125,7 +113,8 @@ User.schema
     .default(Status.Active);
 User.schema
     .addField("type")
-    .type(FieldType.Object)
+    .type(FieldType.List)
+    .listOf(FieldType.Number)
     .required();
 User.schema
     .addField("username")

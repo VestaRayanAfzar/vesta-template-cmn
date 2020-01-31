@@ -7,9 +7,5 @@
   "contributors": [
     "javadkh2 <khalilian.javad@gmail.com>"
   ],
-  "repository": "https://github.com/VestaRayanAfzar/vesta-template-cmn.git",
-  "dependencies": {
-    "@vesta/core": "^2.0.13",
-    "@vesta/services": "^0.4.0"
-  }
+  "repository": "https://github.com/VestaRayanAfzar/vesta-template-cmn.git"
 }

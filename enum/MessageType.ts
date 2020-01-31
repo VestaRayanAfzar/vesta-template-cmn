@@ -1,1 +1,6 @@
-export enum MessageType { Info = 1, Success, Warning, Error }
+export enum MessageType {
+    Info = 1,
+    Success,
+    Warning,
+    Error
+}
